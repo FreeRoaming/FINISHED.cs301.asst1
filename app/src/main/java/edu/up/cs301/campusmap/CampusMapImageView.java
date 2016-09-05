@@ -21,14 +21,17 @@ public class CampusMapImageView extends ImageView {
     // instance variables for the current and previous tokens
     private SimpleMapToken token;
     private SimpleMapToken prevToken;
-    private ArrayList<SimpleMapToken> list = new ArrayList<SimpleMapToken>;
+    private ArrayList<SimpleMapToken> list = new ArrayList<SimpleMapToken>();
 
     public void setToken(SimpleMapToken tok)
     {
         // set the current and previous tokens, based on the new
         // token that has been given to us
-        prevToken = token;
-        token = tok;
+       // prevToken = token;
+        //token = tok;
+
+        list.add(tok);
+
     }
 
     /**
@@ -66,12 +69,17 @@ public class CampusMapImageView extends ImageView {
     protected void onDraw(Canvas g) {
         super.onDraw(g);
         // if the previous token exists, draw it
-        if (prevToken != null) {
-            prevToken.drawOn(g);
-        }
+        //if (prevToken != null) {
+        //    prevToken.drawOn(g);
+        //}
         // if the current token exists, draw it
-        if (token != null) {
-            token.drawOn(g);
+        //if (token != null) {
+        //    token.drawOn(g);
+        //}
+
+        for (int i = 0; i < list.size(); i++)
+        {
+            list.get(i).drawOn(g);
         }
     }
 }
